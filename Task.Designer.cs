@@ -132,7 +132,7 @@
 			this.ClientSize = new System.Drawing.Size(571, 236);
 			this.Controls.Add(this.panel1);
 			this.Name = "Task";
-			this.Text = "Form2";
+			this.Text = "KnowledgeTesting";
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();

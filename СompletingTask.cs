@@ -5,11 +5,14 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace KnowledgeTesting
 {
@@ -194,10 +197,32 @@ namespace KnowledgeTesting
 			double roundedPercentage = Math.Round(((double)result / 12 * 100), 1);
 
 			String commentFull = string.Join(", ", comment);
-
-			MessageBox.Show($"Ваш результат {roundedPercentage}%. Правильно відповіли на питання: {commentFull}"); 
+			String stringResult = $"Тестове завдання:{taskNameFromDb}. Ваш результат {roundedPercentage}% правильних відповідей";
+			MessageBox.Show($"Ви надали {roundedPercentage}% правильних відповідей. Правильно відповіли на питання: {commentFull}");
+			MessageBox.Show($"Ваш результат відправлено на Email: {EmailForm1}");
+			SendEmail(stringResult);
 			this.Close();
 
 		}
+		private void SendEmail(String stringResult)
+		{ 
+		MailAddress fromAddr = new MailAddress("gerasimenkoyuz@gmail.com", "AppKnowledgeTesting");
+		MailAddress toAddr = new MailAddress(EmailForm1);
+
+		MailMessage message = new MailMessage(fromAddr, toAddr);
+		message.Subject = "Результат тестування";
+        message.Body = stringResult;
+        message.BodyEncoding = Encoding.UTF8;
+     
+
+        SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+
+		smtp.Credentials = new NetworkCredential("gerasimenkoyuz@gmail.com", "nblb qqbt ksdv zhke");
+		smtp.EnableSsl = true;
+
+        smtp.Send(message);
+		}
 	}
+
 }
+

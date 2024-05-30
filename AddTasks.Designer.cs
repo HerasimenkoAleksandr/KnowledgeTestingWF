@@ -36,7 +36,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1152, 676);
 			this.Name = "AddTasks";
-			this.Text = "AddTasks";
+			this.Text = "KnowledgeTesting";
 			this.ResumeLayout(false);
 
 		}

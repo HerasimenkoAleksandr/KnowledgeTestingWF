@@ -37,7 +37,7 @@
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(1156, 772);
 			this.Name = "СompletingTask";
-			this.Text = "СompletingTask";
+			this.Text = "KnowledgeTesting";
 			this.ResumeLayout(false);
 
 		}

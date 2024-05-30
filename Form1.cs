@@ -16,7 +16,7 @@ namespace KnowledgeTesting
 		public Form1()
 		{
 			InitializeComponent();
-
+			
 
 		}
 		private void Window_FormClosed(object sender, FormClosedEventArgs e)
